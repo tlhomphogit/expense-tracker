@@ -16,7 +16,10 @@ class Expenses:
             for row in expense_data:
                 row['amount'] = float(row['amount'])
                 self.expenses.append(row)
-        # return Items(self.expenses)
+                
+    def to_items(self):
+        return self.expenses
+    
     def calc_total_spend(self):
         # amounts = [s.get('amount') for s in self.expenses] or ...
         amounts = [s['amount'] for s in self.expenses]
@@ -36,7 +39,7 @@ class Expenses:
         print('-' * 110)
 
 
-file = '/home/wethinkcode/Documents/WeThinkCode/expense-tracker/expenses.csv'
+file = 'expenses.csv'
 expenses = Expenses()
 expenses.read_from_file(file)
 # items = Items(expenses.read_from_file(file))
